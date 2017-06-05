@@ -1,4 +1,5 @@
 # A command based Tic-Tac-toe game
+flag = 0
 theBoard = {'top-l':' ', 'top-m':' ', 'top-r':' ',
             'mid-l':' ', 'mid-m':' ', 'mid-r':' ',
             'low-l':' ', 'low-m':' ', 'low-r':' '}
@@ -28,29 +29,41 @@ for i in range(9):
     theBoard[move] = turn
     if theBoard['top-l'] == theBoard['top-m'] == theBoard['top-r'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
     elif theBoard['mid-l'] == theBoard['mid-m'] == theBoard['mid-r'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
     elif theBoard['low-l'] == theBoard['low-m'] == theBoard['low-r'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
     elif theBoard['top-l'] == theBoard['mid-l'] == theBoard['low-l'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
     elif theBoard['top-m'] == theBoard['mid-m'] == theBoard['low-m'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
     elif theBoard['top-r'] == theBoard['mid-r'] == theBoard['low-r'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
     elif theBoard['top-l'] == theBoard['mid-m'] == theBoard['low-r'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
     elif theBoard['low-l'] == theBoard['mid-m'] == theBoard['top-r'] != ' ':
         print "Congrats! " + turn + " has won the match!"
+        flag = 0
         break
+    else:
+        flag = 1
     if turn == 'X':
         turn = 'O'
     else:
         turn = 'X'
+if flag == 1:
+    print "It's a Tie! \n :)"
